@@ -15,11 +15,25 @@ namespace KodeKata
         public static int Fibonacci(int number)
         {
             if (number < 0) { throw new ArgumentException("Number can not be negative", "number"); }
-
-            if (number == 0) { return 0; }
-            if (number == 1) { return 1; }
-
+            
+            if (number <= 1) { return number; }
             return Fibonacci(number - 1) + Fibonacci(number - 2);
+        }
+
+        public static double Power(int number, int power)
+        {
+            if (power == 0) { return 1; }
+            if (number == 0) { return 0; }
+
+            double result = 1;
+            for (int i = 0; i < Math.Abs(power); i++)
+            {
+                result *= number;
+            }
+
+            if (power < 0) { result = 1 / result; }
+
+            return result;
         }
     }
 }
